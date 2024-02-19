@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .progress {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #ddd;
+            height: 30px;
+            width: 400px;
+            border-radius: 20px;
+        }
+
+        .progress-done {
+            font-family: sans-serif;
+            font-weight: bolder;
+            color: #ffffff;
+            height: 100%;
+            background: linear-gradient(to left, rgb(253, 2, 140), rgb(240, 199, 230));
+            border-radius: 20px;
+            display: grid;
+            place-items: center;
+            width: 0;
+            box-shadow: 0 0 3px -5px rgb(253, 2, 140), 0 3px rgba(253, 2, 140);
+            transition: width 0.5s ease;
+        }
+
+        .progress1 {
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #ddd;
+            height: 30px;
+            width: 400px;
+            border-radius: 20px;
+        }
+
+        .progress-done1 {
+            font-family: sans-serif;
+            font-weight: bolder;
+            color: #ffffff;
+            height: 100%;
+            background: linear-gradient(to left, rgb(253, 2, 140), rgb(240, 199, 230));
+            border-radius: 20px;
+            display: grid;
+            place-items: center;
+            width: 0;
+            box-shadow: 0 0 3px -5px rgb(253, 2, 140), 0 3px rgba(253, 2, 140);
+            transition: width 0.5s ease;
+        }
+
+        .progress2 {
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #ddd;
+            height: 30px;
+            width: 400px;
+            border-radius: 20px;
+        }
+
+        .progress-done2 {
+            font-family: sans-serif;
+            font-weight: bolder;
+            color: #ffffff;
+            height: 100%;
+            background: linear-gradient(to left, rgb(253, 2, 140), rgb(240, 199, 230));
+            border-radius: 20px;
+            display: grid;
+            place-items: center;
+            width: 0;
+            box-shadow: 0 0 3px -5px rgb(253, 2, 140), 0 3px rgba(253, 2, 140);
+            transition: width 0.5s ease;
+        }
+
+        .progress3 {
+            position: absolute;
+            top: 80%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #ddd;
+            height: 30px;
+            width: 400px;
+            border-radius: 20px;
+        }
+
+        .progress-done3 {
+            font-family: sans-serif;
+            font-weight: bolder;
+            color: #ffffff;
+            height: 100%;
+            background: linear-gradient(to left, rgb(253, 2, 140), rgb(240, 199, 230));
+            border-radius: 20px;
+            display: grid;
+            place-items: center;
+            width: 0;
+            box-shadow: 0 0 3px -5px rgb(253, 2, 140), 0 3px rgba(253, 2, 140);
+            transition: width 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="progress">
+        <div class="progress-done" data-done="10">
+        </div>
+    </div>
+    <div class="progress1">
+        <div class="progress-done1" data-done="90">
+        </div>
+    </div>
+    <div class="progress2">
+        <div class="progress-done2" data-done="30">
+        </div>
+    </div>
+    <div class="progress3">
+        <div class="progress-done3" data-done="40">
+        </div>
+    </div>
+    <script>
+        function animateProgressBar(selector) {
+            var counter = 0;
+            window.addEventListener("DOMContentLoaded", move = () => {
+                if (counter === 0) {
+                    var elem = document.querySelector(selector);
+                    var width = 0;
+                    // Get the data-done attribute value and convert it to a number
+                    var j = parseInt(elem.getAttribute("data-done"), 10) || 0;
+
+                    var main = setInterval(frame, 10); // Set a small interval for smoother animations
+
+                    function frame() {
+                        if (width >= j) {
+                            clearInterval(main);
+                        } else {
+                            width++;
+                            elem.style.width = width + "%";
+                            elem.innerHTML = width + "%";
+                        }
+                    }
+                }
+            });
+        }
+
+        animateProgressBar(".progress-done");
+        animateProgressBar(".progress-done1");
+        animateProgressBar(".progress-done2");
+        animateProgressBar(".progress-done3");
+    </script>
+</body>
+</html>
